@@ -1,0 +1,85 @@
+/* Extras that Tailwind's utility classes don't cover directly */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Keyframes ===== */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== Scroll reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Header state on scroll ===== */
+#site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+html.dark #site-header.scrolled {
+  background-color: rgba(10, 10, 15, 0.7);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+/* ===== Active nav link ===== */
+.nav-link.active,
+.mobile-nav-link.active {
+  color: #3b82f6;
+}
+
+html.dark .nav-link.active,
+html.dark .mobile-nav-link.active {
+  color: #22d3ee;
+}
+
+/* ===== Custom scrollbar ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #22d3ee, #8b5cf6);
+  border-radius: 999px;
+}
+
+/* ===== Toast visible state ===== */
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ===== Respect reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
