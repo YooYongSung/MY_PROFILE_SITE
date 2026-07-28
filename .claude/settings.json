@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash"
+    ]
+  },
+  "model": "sonnet",
+  "outputStyle": "Beginner Friendly",
+  "plansDirectory": ".claude/plans/"
+}
